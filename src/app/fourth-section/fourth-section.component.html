@@ -1,0 +1,88 @@
+<p class="lead">fourth-section works!</p>
+
+<button  class="btn btn-primary" [class.active]="isActive" [style.background]="isActive? 'yellow':'green'">Left</button>
+
+<button class="btn btn-danger" (click)="onClick()">Right</button>
+
+<button class="btn btn-secondary" (click)="onClickMiddle($event)">Middle</button> 
+<!-- $event tells us about the event that has caused the $event object 
+to be generated, Here click is the event that generates $event object-->
+
+<input (keyup)="onKeyUp($event)"><!--Way 1-->
+<!-- Another way --> 
+<input (keyup.enter)="onKeyUpWay()"> <!-- Way 2-->
+<!-- Way 1 and Way 2 will give result in console
+if in the input field enter is pressed-->
+
+<br>
+<br>
+<input (keyup)="logInputValue($event)"><!--Way 1-->
+<input #email >
+<button (click)="logInputValueWay(email.value)">Submit</button>
+<br>
+<br>
+
+<input type="text" [(ngModel)]="position" (keyup.enter)="onKeyUPNgModel()">
+<br>
+<input type="text" [(ngModel)]="fakePosition">
+{{fakePosition}}
+
+
+
+<br>
+<br>
+ <img [src]= "imgUrl"> <!--using Property Binding -->
+
+ <img src={{imgUrl}} > <!--  Using Interpolation ,Same result as above-->
+
+
+ <br>
+ <br>
+
+ {{playerDetails.name | uppercase}} <!--KALIDOU KOULABALI -->
+ <br>
+ {{playerDetails.name | lowercase}} <!-- kalidou koulabali -->
+ <br>
+ {{playerDetails.age | number}} <!-- 345,678  -->
+ <br>
+ {{playerDetails.price | currency}} <!--  $560,000.00   -->
+ <br>
+ {{playerDetails.price | currency:"INR":true}} <!--  ₹560,000.00  -->
+ <br>
+ {{playerDetails.price | currency:"INR":false}} <!--  INR560,000.00   -->
+ <br>
+ {{playerDetails.price | currency:'CAD'}} <!-- CA$560,000.00   -->
+ <br>
+ {{playerDetails.price | currency:'CAD':true}} <!-- CA$560,000.00   -->
+ <br>
+ {{playerDetails.price | currency:'CAD':false}} <!-- CAD560,000.00    -->
+ <br>
+ {{playerDetails.price | currency:'CAD':'symbol-narrow'}} <!-- $560,000.00  -->
+ <br>
+ {{playerDetails.date | date : 'short'}} <!-- 6/2/17, 12:00 AM  -->
+ <br>
+ {{playerDetails.date | date : 'mediumDate'}} <!-- Jun 2, 2017  -->
+ <br>
+ {{playerDetails.date | date : 'longTime'}} <!-- 12:00:00 AM GMT+5  -->
+ <br>
+ {{playerDetails.date | date : 'long'}} <!-- June 2, 2017 at 12:00:00 AM GMT+5 -->
+ <br>
+ {{playerDetails.height | number : '1.2-2'}} <!-- 6.79 -->
+ <br>
+ {{playerDetails.height | number : '1.2-4'}} <!-- 6.787  -->
+ <br>
+ {{playerDetails.height | number : '3.1-3'}} <!-- 006.787  -->
+ <br>
+ {{playerDetails.height | number : '1.1-10'}} <!-- 6.786989  -->
+ <br>
+ {{playerDetails.height | number : '1.1-1'}} <!-- 6.8  -->
+ <br>
+ {{playerDetails.height | number : '1.0-0'}} <!-- 7  -->
+ <br>
+ {{playerDetails.price2 | currency : 'INR' : true : '1.5-7'}}
+
+ <hr>
+
+ <br>
+ {{ clubNames | summary }}
+ 
